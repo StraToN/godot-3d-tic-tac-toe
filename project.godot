@@ -1,0 +1,60 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=4
+
+_global_script_classes=[ {
+"base": "Node",
+"class": "BallInputBehaviour",
+"language": "GDScript",
+"path": "res://ball/input_behaviour/ball_input_behaviour.gd"
+}, {
+"base": "RuleBehaviour",
+"class": "GravityBehaviour",
+"language": "GDScript",
+"path": "res://cube/game_behaviour/gravity.gd"
+}, {
+"base": "RuleBehaviour",
+"class": "NoGravityBehaviour",
+"language": "GDScript",
+"path": "res://cube/game_behaviour/no_gravity.gd"
+}, {
+"base": "Node",
+"class": "RuleBehaviour",
+"language": "GDScript",
+"path": "res://cube/game_behaviour/rule_behaviour.gd"
+} ]
+_global_script_class_icons={
+"BallInputBehaviour": "",
+"GravityBehaviour": "",
+"NoGravityBehaviour": "",
+"RuleBehaviour": ""
+}
+
+[application]
+
+config/name="4inARow3D"
+run/main_scene="res://main_menu/main_menu.tscn"
+config/icon="res://icon.png"
+
+[autoload]
+
+game_parameters="*res://game_parameters.gd"
+
+[debug]
+
+gdscript/completion/autocomplete_setters_and_getters=true
+
+[gdnative]
+
+singletons=[  ]
+
+[rendering]
+
+quality/filters/msaa=2
+environment/default_environment="res://default_env.tres"
