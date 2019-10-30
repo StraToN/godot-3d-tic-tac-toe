@@ -258,6 +258,7 @@ func delete_all_balls():
 		return
 		
 	for b in balls_slots.values():
+		b.get_parent().remove_child(b)
 		b.queue_free()
 	balls_slots.clear()
 

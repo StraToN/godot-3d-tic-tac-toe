@@ -120,22 +120,26 @@ func highlight_face(axis, level, reverse = false):
 		
 	var face
 	var face_pivot
+	var balls
 	match axis:
 		0:	#X
-			face = $cube.faces_x[level].balls
+			face = $cube.faces_x[level]
+			balls = face.balls
 			face_pivot = $cube.faces_x[level].pivot
 		1:	#Y
-			face = $cube.faces_y[level].balls
+			face = $cube.faces_y[level]
+			balls = face.balls
 			face_pivot = $cube.faces_y[level].pivot
 		2:	#Z
-			face = $cube.faces_z[level].balls
+			face = $cube.faces_z[level]
+			balls = face.balls
 			face_pivot = $cube.faces_z[level].pivot
 	
 	print("\n\nHIGHLIGHT")
 	printt("face ", axis, " level ", level, "face_pivot ", face_pivot)
 	var c = 0
-	for b in face:
-		printt(str(c), b.name, b.global_transform.origin)
+	for b in face.balls:
+#		printt(str(c), b.name, b.global_transform.origin)
 		if reverse:
 			b.set_ball_to_noone_or_player()
 			$cube/roll/yaw/face_pivot.hide()
